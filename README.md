@@ -67,7 +67,7 @@ On the station (Linux device with FTM support):
 python ftm_publisher.py
 ```
 
-On the receiving machine (runs inference or logs data):
+On the receiving machine (parses incoming measurements and runs live DNN inference):
 
 ```bash
 python ftm_subscriber.py
