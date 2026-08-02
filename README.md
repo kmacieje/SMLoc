@@ -23,7 +23,7 @@ Five access points are placed at fixed positions, each at a height of 1 m above 
 
 ## 📦 Requirements
 
-- Python 3.9+
+- Python 3.12.0
 - Linux with `hostapd` and `iw`
 - MQTT broker (e.g. Mosquitto)
 
