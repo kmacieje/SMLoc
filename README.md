@@ -14,9 +14,34 @@ Indoor positioning system based on IEEE 802.11 FTM (fine time measurement) rangi
 The testbed consists of 6 Intel Joule 570x compute modules, each equipped with an Intel Dual Band Wireless-AC 8260 network adapter:
 
 - 5x configured as **Access Points (AP1-AP5)**
-- 1x configured as the **Station (STA)**, moved between measurement points
+- 1x configured as the **Station (STA)**
 
 ## 🏢 Test Environment
 
-Measurements were collected in an office boardroom, **5.35 m x 19.25 m**.
+Measurements were collected in an office boardroom, **5.35 m x 19.25 m**, giving a floor area of approximately **102 m²**.
+Five access points are placed at fixed positions, each at a height of 1 m above the floor. The station was moved between measurement points on a tripod.
+
+## 📦 Requirements
+
+- Python 3.9+
+- Linux with `hostapd` and `iw`
+- MQTT broker (e.g. Mosquitto)
+
+| Library | Version |
+|---|---|
+| pandas | 2.3.3 |
+| numpy | 2.3.4 |
+| scikit-learn | 1.8.0 |
+| tensorflow | 2.21.0 |
+| keras | 3.14.0 |
+| optuna | 4.8.0 |
+| shap | 0.51.0 |
+| matplotlib | 3.10.9 |
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
 
