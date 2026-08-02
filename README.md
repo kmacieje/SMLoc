@@ -21,6 +21,21 @@ The testbed consists of 6 Intel Joule 570x compute modules, each equipped with a
 Measurements were collected in an office boardroom, **5.35 m x 19.25 m**, giving a floor area of approximately **102 m²**.
 Five access points are placed at fixed positions, each at a height of 1 m above the floor. The station was moved between measurement points on a tripod.
 
+## 📁 Repository structure
+
+| File | Description |
+|---|---|
+| `trilateration_baseline.py` | Classic NLS (non-linear least squares) trilateration using the 4 closest APs; code adapted from [1] |
+| `dnn_baseline.py` | Baseline DNN model for x/y position regression |
+| `smloc_dnn_train.py` | SMLoc DNN training script with offline evaluation on separate test data |
+| `ftm_xy_dnn.keras` | SMLoc Keras model definition |
+| `ftm_xy_scaler.pkl` | SMLoc scaler fitted on the training data of the SMLoc DNN model |
+| `ftm_publisher.py` | Runs FTM ranging requests on the station and publishes raw measurements over MQTT |
+| `ftm_subscriber.py` | Subscribes to MQTT, extracts features from raw FTM data, and runs live DNN inference |
+| `office_measurements.csv` | Raw, unprocessed reference point measurements collected in the office |
+| `office_dataset_mean_std.csv` | Computed features (mean and standard deviation) per AP, derived from raw measurements |
+| `office_features.csv` | Final feature set after feature selection: mean and squared mean per AP, used as SMLoc DNN input |
+
 ## 📦 Requirements
 
 - Python 3.12.0
@@ -43,5 +58,24 @@ Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+## 🚀 Setup
+
+### Real-time positioning
+On the station (Linux device with FTM support):
+
+```bash
+python ftm_publisher.py
+```
+
+On the receiving machine (runs inference or logs data):
+
+```bash
+python ftm_subscriber.py
+```
+
+
+## 📚 References
+
+[1] S. Huilla, "Smartphone-based Indoor Positioning Using Wi-Fi Fine Timing Measurement Protocol," Master's thesis, University of Turku, Department of Future Technologies, 2019.
 
 
