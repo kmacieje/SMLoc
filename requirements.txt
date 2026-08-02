@@ -1,0 +1,11 @@
+pandas==2.3.3
+numpy==2.3.4
+scikit-learn==1.8.0
+tensorflow==2.21.0
+keras==3.14.0
+optuna==4.8.0
+shap==0.51.0
+matplotlib==3.10.9
+scipy
+paho-mqtt
+joblib
