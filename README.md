@@ -25,6 +25,7 @@ Five access points are placed at fixed positions, each at a height of 1 m above 
 
 | File | Description |
 |---|---|
+| `feature_selection.ipynb` | Google Colab notebook containing the code for two-step feature selection pipeline: (1) correlation analysis to remove redundant features, (2) permutation importance to rank and select the most predictive features |
 | `trilateration_baseline.py` | Classic NLS (non-linear least squares) trilateration using the 4 closest APs; code adapted from [1] |
 | `dnn_baseline.py` | Baseline DNN model for x/y position regression |
 | `smloc_dnn_train.py` | SMLoc DNN training script with offline evaluation on separate test data |
